@@ -30,7 +30,7 @@ public class BasicController {
 		else return retornoRepository.findByProtocolo(protocolo);
 	}
 
-	@RequestMapping(value="/save/{protocolo}", consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@RequestMapping(value="/save/{protocolo}", consumes=MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.POST)
 	public void insert(@PathVariable String protocolo, @RequestBody String json) {
 		System.out.println(json);
 		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json);
