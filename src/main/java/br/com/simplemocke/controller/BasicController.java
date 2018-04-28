@@ -32,7 +32,7 @@ public class BasicController {
 
 	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
 	public void insert(@PathVariable String protocolo, @RequestBody String json) {
-		
+		System.out.println(json);
 		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json);
 		retornoRepository.save(retornoEntity);
 		retornoEntity.getProtocolo();
