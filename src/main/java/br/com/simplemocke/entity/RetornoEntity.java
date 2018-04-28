@@ -17,7 +17,7 @@ public class RetornoEntity {
 	@Column(name="protocolo")
 	private String protocolo;
 	
-	@Column(name="json", length = 10000)
+	@Column(name="json", length = 100000)
 	private String json;
 
 	public Long getId() {
