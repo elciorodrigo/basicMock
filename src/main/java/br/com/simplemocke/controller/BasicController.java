@@ -27,7 +27,7 @@ public class BasicController {
 		
 		if(protocolo==null || protocolo.isEmpty())
 			return retornoRepository.findAll();
-		else return Arrays.asList(retornoRepository.findByProtocolo(protocolo));
+		else return retornoRepository.findByProtocolo(protocolo);
 	}
 
 	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
