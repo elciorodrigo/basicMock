@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class RetornoEntity {
@@ -17,7 +18,8 @@ public class RetornoEntity {
 	@Column(name="protocolo")
 	private String protocolo;
 	
-	@Column(name="json", length = 100000)
+	@Lob
+	@Column(name="json")
 	private String json;
 
 	public Long getId() {
