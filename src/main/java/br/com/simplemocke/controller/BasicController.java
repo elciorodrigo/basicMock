@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.simplemocke.entity.Resultado;
 import br.com.simplemocke.entity.RetornoEntity;
 import br.com.simplemocke.repository.RetornoRepository;
 
@@ -32,10 +33,9 @@ public class BasicController {
 	}
 
 	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
-	public void insert(@PathVariable String protocolo, @RequestBody String json) throws UnsupportedEncodingException {
-		json = new String((json.getBytes()) ,"UTF-8");
-		System.out.println(json);
-		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json);
+	public void insert(@PathVariable String protocolo, @RequestBody Resultado json) throws UnsupportedEncodingException {
+		
+		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json.toString());
 		retornoRepository.save(retornoEntity);
 		retornoEntity.getProtocolo();
 		
