@@ -1,9 +1,10 @@
 package br.com.simplemocke.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,9 @@ public class BasicController {
 		else return retornoRepository.findByProtocolo(protocolo);
 	}
 
-	@RequestMapping(value="/save/{protocolo}", consumes=MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.POST)
-	public void insert(@PathVariable String protocolo, @RequestBody String json) {
+	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
+	public void insert(@PathVariable String protocolo, @RequestBody String json) throws UnsupportedEncodingException {
+		json = new String((json.getBytes()) ,"UTF-8");
 		System.out.println(json);
 		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json);
 		retornoRepository.save(retornoEntity);
