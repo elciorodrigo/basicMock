@@ -33,11 +33,10 @@ public class BasicController {
 	}
 
 	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
-	public void insert(@PathVariable String protocolo, @RequestBody Resultado json) throws UnsupportedEncodingException {
+	public void insert(@PathVariable String protocolo, @RequestBody String json) throws UnsupportedEncodingException {
 		
-		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json.toString());
+		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json);
 		retornoRepository.save(retornoEntity);	
-		retornoEntity.getProtocolo();
 		
 	}
 
