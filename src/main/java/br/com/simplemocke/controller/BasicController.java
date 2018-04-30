@@ -32,7 +32,7 @@ public class BasicController {
 		else return retornoRepository.findByProtocolo(protocolo);
 	}
 
-	@RequestMapping(value="/save/{protocolo}", consumes=MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@RequestMapping(value="/save/{protocolo}", method = RequestMethod.POST)
 	public void insert(@PathVariable String protocolo, @RequestBody Resultado json) throws UnsupportedEncodingException {
 		
 		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json.toString());
