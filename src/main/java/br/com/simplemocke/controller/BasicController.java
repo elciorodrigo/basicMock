@@ -36,7 +36,7 @@ public class BasicController {
 	public void insert(@PathVariable String protocolo, @RequestBody Resultado json) throws UnsupportedEncodingException {
 		
 		RetornoEntity retornoEntity = new RetornoEntity(protocolo, json.toString());
-		retornoRepository.save(retornoEntity);
+		retornoRepository.save(retornoEntity);	
 		retornoEntity.getProtocolo();
 		
 	}
