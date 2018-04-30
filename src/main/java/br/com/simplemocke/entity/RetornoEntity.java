@@ -18,7 +18,6 @@ public class RetornoEntity {
 	@Column(name="protocolo")
 	private String protocolo;
 	
-	@Lob
 	@Column(name="json")
 	private String json;
 
